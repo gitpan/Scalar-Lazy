@@ -2,7 +2,7 @@ NAME
     Scalar::Lazy - Yet another lazy evaluation in Perl
 
 VERSION
-    $Id: README,v 0.2 2008/06/01 16:29:34 dankogai Exp dankogai $
+    $Id: README,v 0.3 2008/06/01 17:09:08 dankogai Exp dankogai $
 
 SYNOPSIS
       use Scalar::Lazy;
@@ -50,7 +50,7 @@ DISCUSSION
 
     There are various CPAN modules that does what this does. But I found
     others too complicated. Hey, the whole code is only 25 lines long!
-    Nicely fits in a good-old terminal screen.
+    (Well, was until 0.03) Nicely fits in a good-old terminal screen.
 
     The closest module is Scalar::Defer, a brainchild of Audrey Tang. But I
     didn't like the way it (ab)?uses namespace.
@@ -71,6 +71,17 @@ FUNCTIONS
     is really:
 
       Scalar::Lazy->new(sub { value });
+
+    You can optionally set the second parameter. If set, the value becomes
+    constant. The folloing example illustrates the difference.
+
+      my $x = 0;
+      my $once = lazy { ++$x } 'init'; # $once is always 1
+      is $once, 1, 'once';
+      is $once, 1, 'once';
+      my $succ = lazy { ++$x }; # $succ always increments $x
+      isnt $succ, 1, 'succ';
+      is $succ, 3, 'succ';
 
   delay
     an alias to "lazy".

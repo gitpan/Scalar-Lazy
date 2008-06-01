@@ -1,12 +1,20 @@
 package Scalar::Lazy;
 use warnings;
 use strict;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.2 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.3 $ =~ /(\d+)/g;
 use base 'Exporter';
 our @EXPORT = qw/ delay lazy /;
 
-sub new($&) { bless $_[1], $_[0] }
-sub lazy(&) { __PACKAGE__->new(@_) }
+sub new($&;$) { 
+    my ($pkg, $code, $init) = @_;
+    if ($init){
+	my $val = $code->();
+	$code = sub { $val };
+    }
+    bless $code, $pkg;
+}
+
+sub lazy(&;$) { __PACKAGE__->new(@_) }
 *delay = \&lazy;
 
 sub force($){
@@ -30,7 +38,7 @@ Scalar::Lazy - Yet another lazy evaluation in Perl
 
 =head1 VERSION
 
-$Id: Lazy.pm,v 0.2 2008/06/01 16:29:17 dankogai Exp $
+$Id: Lazy.pm,v 0.3 2008/06/01 17:09:08 dankogai Exp dankogai $
 
 =head1 SYNOPSIS
 
@@ -80,7 +88,7 @@ Check the source.  That's what the source is for.
 
 There are various CPAN modules that does what this does.  But I found
 others too complicated.  Hey, the whole code is only 25 lines long!
-Nicely fits in a good-old terminal screen.
+(Well, was until 0.03) Nicely fits in a good-old terminal screen.
 
 The closest module is L<Scalar::Defer>, a brainchild of Audrey Tang.
 But I didn't like the way it (ab)?uses namespace.
@@ -104,6 +112,17 @@ C<lazy> and C<delay>.
 is really:
 
   Scalar::Lazy->new(sub { value });
+
+You can optionally set the second parameter.  If set, the value
+becomes constant.  The folloing example illustrates the difference.
+
+  my $x = 0;
+  my $once = lazy { ++$x } 'init'; # $once is always 1
+  is $once, 1, 'once';
+  is $once, 1, 'once';
+  my $succ = lazy { ++$x }; # $succ always increments $x
+  isnt $succ, 1, 'succ';
+  is $succ, 3, 'succ';
 
 =head2 delay
 
