@@ -2,7 +2,7 @@ NAME
     Scalar::Lazy - Yet another lazy evaluation in Perl
 
 VERSION
-    $Id: README,v 0.1 2008/06/01 16:22:31 dankogai Exp dankogai $
+    $Id: README,v 0.2 2008/06/01 16:29:34 dankogai Exp dankogai $
 
 SYNOPSIS
       use Scalar::Lazy;
@@ -48,16 +48,16 @@ DISCUSSION
   HOW IT WORKS
     Check the source. That's what the source is for.
 
-    There are various CPAN modules that acts like this. But I found others
-    too complicated. Hey, the whole code is only 25 lines long! Nicely fits
-    in a good-old terminal screen.
+    There are various CPAN modules that does what this does. But I found
+    others too complicated. Hey, the whole code is only 25 lines long!
+    Nicely fits in a good-old terminal screen.
 
     The closest module is Scalar::Defer, a brainchild of Audrey Tang. But I
     didn't like the way it (ab)?uses namespace.
 
-    <Data::Thunk> depends too many modules.
+    Data::Thunk depends too many modules.
 
-    And <Data::Lazy> is overkill.
+    And Data::Lazy is overkill.
 
     All I needed was auto-forcing and this module does just that.
 

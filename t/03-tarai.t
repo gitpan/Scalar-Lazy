@@ -1,6 +1,6 @@
 #!perl -T
 #
-# $Id: 03-tarai.t,v 0.1 2008/06/01 16:22:31 dankogai Exp dankogai $
+# $Id: 03-tarai.t,v 0.1 2008/06/01 16:22:31 dankogai Exp $
 #
 # http://blog.livedoor.jp/dankogai/archives/50447103.html
 # http://blog.livedoor.jp/dankogai/archives/50829735.html

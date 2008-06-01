@@ -1,6 +1,6 @@
 #!perl -T
 #
-# $Id: 02-combinator.t,v 0.1 2008/06/01 16:22:31 dankogai Exp dankogai $
+# $Id: 02-combinator.t,v 0.1 2008/06/01 16:22:31 dankogai Exp $
 #
 # http://blog.livedoor.jp/dankogai/archives/50458503.html
 

@@ -1,7 +1,7 @@
 package Scalar::Lazy;
 use warnings;
 use strict;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.1 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.2 $ =~ /(\d+)/g;
 use base 'Exporter';
 our @EXPORT = qw/ delay lazy /;
 
@@ -30,7 +30,7 @@ Scalar::Lazy - Yet another lazy evaluation in Perl
 
 =head1 VERSION
 
-$Id: Lazy.pm,v 0.1 2008/06/01 16:22:31 dankogai Exp dankogai $
+$Id: Lazy.pm,v 0.2 2008/06/01 16:29:17 dankogai Exp $
 
 =head1 SYNOPSIS
 
@@ -78,16 +78,16 @@ This module makes it easier by making the value auto-forcing.
 
 Check the source.  That's what the source is for.
 
-There are various CPAN modules that acts like this.  But I found
+There are various CPAN modules that does what this does.  But I found
 others too complicated.  Hey, the whole code is only 25 lines long!
 Nicely fits in a good-old terminal screen.
 
 The closest module is L<Scalar::Defer>, a brainchild of Audrey Tang.
 But I didn't like the way it (ab)?uses namespace.
 
-<Data::Thunk> depends too many modules.
+L<Data::Thunk> depends too many modules.
 
-And <Data::Lazy> is overkill.
+And L<Data::Lazy> is overkill.
 
 All I needed was auto-forcing and this module does just that.
 

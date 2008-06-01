@@ -1,6 +1,6 @@
 #!perl -T
 #
-# $Id: 01-basic.t,v 0.1 2008/06/01 16:22:31 dankogai Exp dankogai $
+# $Id: 01-basic.t,v 0.1 2008/06/01 16:22:31 dankogai Exp $
 #
 
 use strict;

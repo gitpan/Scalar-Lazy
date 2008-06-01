@@ -1,10 +1,13 @@
 #
 # Revision history for Scalar-Lazy
 #
-# $Id: Changes,v 0.1 2008/06/01 16:22:31 dankogai Exp dankogai $
+# $Id: Changes,v 0.2 2008/06/01 16:29:17 dankogai Exp $
 #
+$Revision: 0.2 $ $Date: 2008/06/01 16:29:17 $
+! lib/Scalar/Lazy.pm
+  POD fixes.
 
-$Revision: 0.1 $ $Date: 2008/06/01 16:22:31 $
+0.01 2008/06/01 16:22:31
 + *
         First version.
 
